@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-ajax-xml</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            text-align: center;
+            background: #ccc;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 10px auto 10px;
+            border: 1px solid #000;
+        }
+        p{
+            text-align: center;
+            background: pink;
+        }
+    </style>
+    <script src="myAjax.js"></script>
+    <script>
+        window.onload = function (ev) {
+
+            var oBtn = document.querySelectorAll("button");
+            var oTitle = document.querySelector("#title");
+            var oDes = document.querySelector("#des");
+            var oImg = document.querySelector("img");
+            for(var i = 0; i < oBtn.length; i ++) {
+                oBtn[i].onclick = function (ev1) {
+                    var self = this;
+                    ajax({
+                        data:{
+                            "name":this.getAttribute("name")
+                        },
+                        type:"get",
+                        timeout:3000,
+                        url:"07-ajax-xml.php",
+                        success: function (xhr) {
+
+                            // 接收XML文件
+                            var name = self.getAttribute("name");
+                            var res = xhr.responseXML;
+                            var title = res.querySelector(name+">title").innerHTML;
+                            var des = res.querySelector(name+">des").innerHTML;
+                            var image = res.querySelector(name+">image").innerHTML;
+
+                            oTitle.innerHTML = title;
+                            oDes.innerHTML = des;
+                            oImg.setAttribute("src",image);
+
+                        },
+                        error: function (xhr) {
+                            console.log(xhr.status);
+                        }
+                    })
+                }
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+<div>
+    <p id="title">商品标题名称</p>
+    <img src="" alt="">
+    <p id="des">商品描述信息</p>
+    <button name="nz">女装</button>
+    <button name="bb">包包</button>
+    <button name="tx">拖鞋</button>
+</div>
+</body>
+</html>

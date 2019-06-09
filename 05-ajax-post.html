@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-ajax-post</title>
+</head>
+<body>
+<!--
+    什么是ajax？
+    ajax是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下
+-->
+
+<script src="myAjax.js"></script>
+<script>
+    window.onload = function () {
+        var oBtn = document.querySelector('button');  // 获取button的DOM元素
+        oBtn.onclick = function () {
+            ajax("POST","05-ajax-post.php",{
+                "userName":"wrf",
+                "userPwd":"123321"
+            },3000,function(xhr){
+                alert(xhr.responseText)
+            },function (xhr) {
+                alert("请求失败")
+            })
+        }
+    }
+
+</script>
+<button>发送请求</button>
+
+</body>
+</html>

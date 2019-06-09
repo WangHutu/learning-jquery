@@ -1,0 +1,117 @@
+* {
+    margin:0;
+    padding:0;
+}
+html,body {
+    width:100%;
+    height:100%;
+}
+body {
+    background:url("../images/body_bg.jpg") no-repeat center 0;
+}
+.nav {
+    width:100%;
+    height:48px; 
+}
+.nav>img {
+    width:100%;
+}
+.content {
+    width:1000px;
+    height:auto;
+    overflow: hidden;
+    background:#ebdbd4;
+    margin:200px auto 0 auto;
+}
+.content>.left {
+    float:left;
+    width:150px;
+}
+.content>.right {
+    float:right;
+    width:240px;
+}
+.content>.conter {
+    float:left;
+    width:600px;
+    height:168px;
+    background:url("../images/comment.png") no-repeat 0 0;
+    background-size:600px 168px;
+}
+.conter>.comment {
+    width:570px;
+    height:73px;
+    margin-top:44px;
+    margin-left:15px;
+    resize: none;   /*取消拖拽边框的效果 */
+    border:none;    /*取消边框 */
+    outline:none;   /*取消蓝色聚焦 */
+}
+.conter>.send {
+    width:84px;
+    height:30px;
+    margin-left:506px;
+    margin-top:5px;
+    border:none;
+    background-color:#fd8040;
+    color:#fff;
+}
+.content>.commentText {
+    width:600px;
+    height:600px;
+    background:#fff;
+    float:left;
+
+}
+.commentText>.info {
+    width:560px;
+    color:#333;
+    font-size:16px;
+    padding:10px 20px;
+    border-bottom: 2px solid #ccc;
+}
+.info>.text1 {
+    display: inline-block;
+    margin-bottom:10px;
+    line-height:25px;
+}
+.info>.text2 {
+    font-size: 13px;
+    color:#ccc;
+}
+.text2>.infoRight {
+    float:right;
+}
+.infoRight>a {
+    text-decoration: none;
+    color:#ccc;
+    background: url(../images/icons.png) no-repeat 0 0;
+    margin-left:10px;
+    padding-left:25px;
+}
+.infoRight>a:nth-child(2) {
+    background-position: 0 -17px;
+}
+.infoRight>a:nth-child(3) {
+    background-position: 0 -33px;
+}
+.page {
+    width:1000px;
+    height:40px;
+    margin:0 auto;
+    background: #9b4f29;
+    text-align: right;
+    padding:10px;
+    box-sizing: border-box
+}
+.page>a {
+    text-align: center;
+    display: inline-block;
+    width:20px;
+    height:20px;
+    border:1px solid #ccc;
+    text-decoration: none;
+    margin-left:10px;
+    color:#2b2b2b;
+    line-height:20px;
+}

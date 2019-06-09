@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-ajax-jquery</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="myAjax.js"></script>
+</head>
+
+<!--
+    什么是ajax？
+    ajax是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下
+-->
+
+<script>
+    window.onload = function () {
+        var oBtn = document.querySelector('button');  // 获取button的DOM元素
+        oBtn.onclick = function () {
+            // jquery的ajax方法
+            // $.ajax({
+            //     type:"GET",
+            //     url:"06-ajax-jquery.php",
+            //     data:"userName=wrf&userPwd=123456654321",
+            //     success:function (msg) {
+            //         alert(msg)
+            //     },
+            //     error:function (xhr) {
+            //         alert(xhr.status);
+            //     }
+            // })
+
+
+            ajax({
+                url:"06-ajax-jquery.php",
+                type:"GET",
+                data:{
+                    "userName":"wrf",
+                    "userPwd":"123456654321"
+                },
+                timeout:3000,
+                success:function(xhr){
+                    alert(xhr.responseText)
+                },
+                error:function (xhr) {
+                    alert("请求失败")
+                }
+            })
+
+
+        }
+    }
+
+</script>
+<body>
+<button>发送请求</button>
+</body>
+</html>
